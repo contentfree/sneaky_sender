@@ -1,7 +1,35 @@
-sneaky_sender=============
-Description goes here.
+sneaky_sender
+=============
+
+Use multiple email addresses to send large numbers of emails. Sneaky!
+
+
+ABOUT 
+=====
+This module was inspired by Google Apps for Domains' sending limits and http://pastie.caboo.se/153510.
+Google Apps for Domains limits the sending of email to 500 (or 100, depending on the FAQ) unique addresses
+per day. That just doesn't cut it sometimes. Luckily, if you have a standard (free) account you can have
+up to 200 email addresses. That's a significant number of emails per day (you should look at other
+solutions if you start sending 10,000 emails every day)
+
+
+USAGE 
+=====
+sudo gem install contentfree-sneaky_sender --source http://gems.github.com
+
+Install the gem and in environments/production.rb (or config/initializers/mail.rb) set your
+smtp_settings as normal except replace user_name with +multiple_user_names+ and give it an array
+containing the following things:
+* Email address template. Should contain a single %d that will be replaced with a number from the account
+  number range. For example: 'notifications%d@domain.com'
+* Account number range. A range - (1..20) for example - that will determine the email address to use. Will
+  be replaced into the email address template and result in something like notifications1@domain.com
+* (optional) Load balancing strategy. Either :random (default) or :round_robin. :random will use a random
+  number from the range while :round_robin will start at the range.min and increment to range.max and
+  continually loop back around. NOTE ABOUT ROUND ROBIN: This value isn't shared between mongrel instances.
+
 
 COPYRIGHT
 =========
 
-Copyright (c) 2008 Dave Myron. See LICENSE for details.
+Copyright (c) 2009 Dave Myron. See LICENSE for details.
