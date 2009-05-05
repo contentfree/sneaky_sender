@@ -2,7 +2,7 @@ module SneakySender
   def self.included(base)
     base.extend ClassMethods
     base.class_eval do
-      include MultiAddressSender::InstanceMethods
+      include SneakySender::InstanceMethods
       alias_method_chain :perform_delivery_smtp, :multiple_addresses unless method_defined?(:perform_delivery_smtp_without_multiple_addresses)
     end
   end
