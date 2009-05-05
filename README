@@ -31,6 +31,7 @@ containing the following things:
   continually loop back around. NOTE ABOUT ROUND ROBIN: This value isn't shared between mongrel instances.
 * It's important to note that the password - currently - must be the same for all the accounts used.
 
+
 COPYRIGHT
 =========
 
