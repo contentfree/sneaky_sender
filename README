@@ -16,7 +16,7 @@ solutions if you start sending 10,000 emails every day)
 USAGE 
 =====
 
-1. In environment.rb: 
+1. In environment.rb:
      config.gem 'contentfree-sneaky_sender', :lib => 'sneaky_sender', :source => 'http://gems.github.com'
 2. sudo rake gems:install
 3. In environments/production.rb (or a config/initializers/mail.rb) set your
@@ -29,7 +29,7 @@ containing the following things:
 * (optional) Load balancing strategy. Either :random (default) or :round_robin. :random will use a random
   number from the range while :round_robin will start at the range.min and increment to range.max and
   continually loop back around. NOTE ABOUT ROUND ROBIN: This value isn't shared between mongrel instances.
-
+* It's important to note that the password - currently - must be the same for all the accounts used.
 
 COPYRIGHT
 =========
