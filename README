@@ -15,9 +15,11 @@ solutions if you start sending 10,000 emails every day)
 
 USAGE 
 =====
-sudo gem install contentfree-sneaky_sender --source http://gems.github.com
 
-Install the gem and in environments/production.rb (or config/initializers/mail.rb) set your
+1. In environment.rb: 
+     config.gem 'contentfree-sneaky_sender', :lib => 'sneaky_sender', :source => 'http://gems.github.com'
+2. sudo rake gems:install
+3. In environments/production.rb (or a config/initializers/mail.rb) set your
 smtp_settings as normal except replace user_name with +multiple_user_names+ and give it an array
 containing the following things:
 * Email address template. Should contain a single %d that will be replaced with a number from the account
